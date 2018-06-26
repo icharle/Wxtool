@@ -8,7 +8,7 @@
 
 namespace Icharle\Wxtool;
 
-class UserinfoService
+class Userinfo
 {
 
 }
