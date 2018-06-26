@@ -1,19 +1,19 @@
 {
-    "name": "icharle/wxtool",
-    "description": "微信小程序登录、带参小程序码生成",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "icharle",
-            "email": "icharle@live.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "Icharle\\Wxtool\\": "src/"
-        }
+  "name": "icharle/wxtool",
+  "description": "微信小程序登录、带参小程序码生成",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "icharle",
+      "email": "icharle@live.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Icharle\\Wxtool\\": "src/"
+    }
+  }
 }
