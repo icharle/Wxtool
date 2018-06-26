@@ -1,7 +1,6 @@
 {
   "name": "icharle/wxtool",
   "description": "微信小程序登录、带参小程序码生成",
-  "type": "library",
   "license": "MIT",
   "authors": [
     {
