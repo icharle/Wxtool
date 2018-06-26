@@ -36,4 +36,14 @@ return [
     */
 
     'wx_pic_url' => 'https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=%s',
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | 微信小程序小程序码存储位置
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'wx_pic_site' => dirname(dirname(dirname(dirname(__FILE__)))) . '/public/qrcode/'
 ];
