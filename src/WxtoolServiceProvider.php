@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Created by PhpStorm.
+ * User: icharle
+ * Date: 2018/6/26
+ * Time: 下午3:15
+ */
+
 namespace Icharle\Wxtool;
 
 use Illuminate\Support\ServiceProvider;
