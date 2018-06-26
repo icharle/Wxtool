@@ -9,6 +9,7 @@
 namespace Icharle\Wxtool;
 
 
-class Wxtool{
+class Wxtool
+{
 
 }
