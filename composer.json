@@ -13,7 +13,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Icharle\\Wxtool": "src/"
+            "Icharle\\Wxtool\\": "src/"
         }
     }
 }
