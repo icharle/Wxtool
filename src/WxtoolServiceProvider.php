@@ -38,7 +38,7 @@ class WxtoolServiceProvider extends ServiceProvider
             return new Wxtool();
         });
 
-        $this->app->alias('wxtool', 'Icharle\Wxtool\Wxtool');
+        $this->app->alias('wxtool', Wxtool::class);
     }
 
 
