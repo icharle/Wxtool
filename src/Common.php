@@ -12,6 +12,23 @@ class Common
 {
 
     /**
+     * @var int
+     * 定义错误代码
+     * -41001: encodingAesKey 非法
+     * -41003: aes 解密失败
+     * -41004: 解密后得到的buffer非法
+     * -41005: base64加密失败
+     * -41016: base64解密失败
+     *  40029: 临时登录凭证（code）无效
+     */
+    public static $OK = 0;
+    public static $IllegalAesKey = -41001;
+    public static $IllegalIv = -41002;
+    public static $IllegalBuffer = -41003;
+    public static $DecodeBase64Error = -41004;
+    public static $Illegalcode = 40029;
+
+    /**
      * @param $url
      * @param null $data
      * @return bool|mixed
