@@ -91,7 +91,7 @@ class Qrcode
      */
     public function WriteQrcode($imgstream)
     {
-        $savePath = $this->wxpicsite;                       //图片路径
+        $savePath = storage_path('app'.$this->wxpicsite);                       //图片路径
         //检查目录是否存在
         if (!is_dir($savePath)) {
             // 尝试创建目录
@@ -99,10 +99,10 @@ class Qrcode
                 return false;
             }
         }
-        $filename = uniqid() . '.png';                      //图片命名
-        $realpath = $savePath . $filename;                  //图片存储路径
-        file_put_contents($realpath, $imgstream);           //二进制流保存成图片
-        return "./qrcode/" . $filename;                     //返回保存路径
+        $filename = uniqid() . '.png';                          //图片命名
+        $realpath = $this->wxpicsite . $filename;               //图片存储路径
+        Storage::put($realpath, $imgstream);                    //二进制流保存成图片
+        return Storage::url('qrcode/' . $filename);             //返回保存路径
     }
 
 

@@ -45,5 +45,5 @@ return [
     |
     */
 
-    'wx_pic_site' => dirname(dirname(dirname(dirname(__FILE__)))) . '/public/qrcode/'
+    'wx_pic_site' => '/public/qrcode/'
 ];
