@@ -31,11 +31,11 @@ class Qrcode
      */
     public function __construct()
     {
-        $this->wxappid = config('app.wx_appid');
-        $this->wxsecret = config('app.wx_secret');
-        $this->wxtokenurl = config('app.wx_token_url');
-        $this->wxpicurl = config('app.wx_pic_url');
-        $this->wxpicsite = config('app.wx_pic_site');
+        $this->wxappid = config('wxtool.wx_appid');
+        $this->wxsecret = config('wxtool.wx_secret');
+        $this->wxtokenurl = config('wxtool.wx_token_url');
+        $this->wxpicurl = config('wxtool.wx_pic_url');
+        $this->wxpicsite = config('wxtool.wx_pic_site');
     }
 
     /**
