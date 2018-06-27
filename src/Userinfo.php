@@ -29,8 +29,6 @@ class Userinfo
         $this->wxappid = config('wxtool.wx_appid');
         $this->wxsecret = config('wxtool.wx_secret');
         $this->wxcodeurl = config('wxtool.wx_code_url');
-        $this->wxtokenurl = config('wxtool.wx_token_url');
-        $this->wxpicurl = config('wxtool.wx_pic_url');
     }
 
 
