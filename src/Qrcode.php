@@ -10,6 +10,7 @@ namespace Icharle\Wxtool;
 
 use Illuminate\Support\Facades\Cache;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class Qrcode
 {
