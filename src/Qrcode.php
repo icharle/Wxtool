@@ -20,6 +20,7 @@ class Qrcode
     private $wxtokenurl;
     private $wxpicurl;
     private $wxpicsite;
+    private $wxpicsave;
 
 
     /**
@@ -29,6 +30,7 @@ class Qrcode
      * @param $wxtokenurl string 获取token_url
      * @param $wxpicurl string 获取小程序码_url
      * @param $wxpicsite string 获取小程序码位置
+     * @param $wxpicsave string 小程序码存储方式
      */
     public function __construct()
     {
@@ -37,6 +39,7 @@ class Qrcode
         $this->wxtokenurl = config('wxtool.wx_token_url');
         $this->wxpicurl = config('wxtool.wx_pic_url');
         $this->wxpicsite = config('wxtool.wx_pic_site');
+        $this->wxpicsave = config('wxtool.wx_save_type');
     }
 
     /**
@@ -81,7 +84,15 @@ class Qrcode
             return false;
         }
 
-        return $this->WriteQrcode($img);                        //返回路径
+        // 如果为文件方式存储 则返回图片存储路径   否则返回base64编码
+        if ($this->wxpicsave == "file") {
+            return $this->WriteQrcode($img);                        //返回路径
+        } else {
+            $encode = "data:image/jpg/png/gif;base64," . chunk_split(base64_encode($img));
+            return $encode;                                         //返回base64编码
+        }
+
+
     }
 
     /**
@@ -92,7 +103,7 @@ class Qrcode
      */
     public function WriteQrcode($imgstream)
     {
-        $savePath = storage_path('app'.$this->wxpicsite);                       //图片路径
+        $savePath = storage_path('app' . $this->wxpicsite);                       //图片路径
         //检查目录是否存在
         if (!is_dir($savePath)) {
             // 尝试创建目录
