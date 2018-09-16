@@ -9,7 +9,7 @@
 namespace Icharle\Wxtool;
 
 
-class Wxtool
+class Wxtool extends Common
 {
     /**
      * @var 定于变量
@@ -29,6 +29,7 @@ class Wxtool
         $this->wxappid = config('wxtool.wx_appid');
         $this->wxsecret = config('wxtool.wx_secret');
         $this->wxcodeurl = config('wxtool.wx_code_url');
+        $this->wxtemplateurl = config('wxtool.wx_template_url');
     }
 
     /**
@@ -41,6 +42,21 @@ class Wxtool
         $Qrcode = new Qrcode();
         $imgpath = $Qrcode->GetCodeUnlimit($scene, $page);
         return $imgpath;
+    }
+
+    /**
+     * @param $data
+     * @return bool
+     */
+    public function GetTemplate($data)
+    {
+        $code_url = sprintf($this->wxtemplateurl, Common::GetAccessToken());
+        $template = json_decode(Common::curl($code_url,$data),true);
+        if ($template['errcode'] == "0"){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 

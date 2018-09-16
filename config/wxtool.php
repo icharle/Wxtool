@@ -27,6 +27,15 @@ return [
 
     'wx_token_url' => 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s',
 
+    /*
+    |--------------------------------------------------------------------------
+    | 微信小程序请求模板消息
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'wx_template_url' => 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=%s',
+
 
     /*
     |--------------------------------------------------------------------------

@@ -8,11 +8,9 @@
 
 namespace Icharle\Wxtool;
 
-use Illuminate\Support\Facades\Cache;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
-class Qrcode
+class Qrcode extends Common
 {
 
     private $wxappid;
@@ -43,26 +41,6 @@ class Qrcode
     }
 
     /**
-     * @return mixed
-     * 获取Token 返回Token
-     */
-    public function GetAccessToken()
-    {
-        //如果存在token值  直接返回
-        if (Cache::get('access_token')) {
-            return Cache::get('access_token');
-        } else {
-            //不存在重新获取
-            $token_url = sprintf($this->wxtokenurl, $this->wxappid, $this->wxsecret);
-            $res = json_decode(Common::curl($token_url), true);
-            //缓存100分钟(官方有效期120分钟)
-            $expiresAt = Carbon::now()->addMinutes(100);
-            Cache::put('access_token', $res['access_token'], $expiresAt);
-            return $res['access_token'];
-        }
-    }
-
-    /**
      * 适用于需要的码数量极多
      * @param string $scene ,最大32个可见字符，只支持数字，大小写英文以及部分特殊字符：!#$&'()*+,/:;=?@-._~，其它字符请自行编码为合法字符（因不支持%，中文无法使用 urlencode 处理，请使用其他编码方式）
      * @param string $page ,必须是已经发布的小程序存在的页面（否则报错），例如 "pages/index/index" ,根路径前不要填加'/',不能携带参数（参数请放在scene字段里），如果不填写这个字段，默认跳主页面
@@ -71,7 +49,7 @@ class Qrcode
      */
     public function GetCodeUnlimit($scene, $page, $width = 430, $autoColor = true)
     {
-        $url = sprintf($this->wxpicurl, $this->GetAccessToken());
+        $url = sprintf($this->wxpicurl, Common::GetAccessToken());
         $params = array(
             "scene" => $scene,
             "page" => $page,
